@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.util.*;
+import java.util.Arrays;
+
+
+public class BitwiseOperators {
+	static int[] field = {2,3,0,1};
+	public static void main(String[] args){
+
+	/*Scanner input = new Scanner(System.in);
+		String in = "none";
+		System.out.println("Enter your values one at a time or enter none if there are no more values");
+		in = input.nextLine();
+		try{
+			
+			nums = Integer.parseInt(in);
+		    for(int k = 0; k >= 0; k++){
+		    	field[k] = nums;
+		    }
+			
+		}
+		catch(NumberFormatException none)
+		{
+			if("none" == in){
+				field = new int[0];
+			}
+	}
+    {*/
+	int combined = 0;
+	int n = 0;
+	int[] fields;
+	fields= field;
+	for(int j = 0; j<fields.length; j++){
+	combined = combined | fields[j] << 2 * j;
+	n++;
+	}
+	int mask = 3;
+	for(int i = 0; i < n; i++)
+	    {
+		System.out.println("Field " + new Integer(i + 1).toString() + ": " + new Integer((combined & mask) >> 2*i).toString());
+		mask <<= 2;
+	    }
+	String arrayInArray = Arrays.toString(fields);
+	String ar[]=arrayInArray.substring(1,arrayInArray.length()-1).split(", ");
+	System.out.println(arrayInArray.toString());
+	String[][] arrays = new String[][] {ar};
+	System.out.println(arrays[0]);
+    }
+}
+
+
