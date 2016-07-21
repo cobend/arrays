@@ -1,0 +1,91 @@
+import java.util.Scanner;
+import java.util.*;
+import java.util.Arrays;
+
+
+public class BitwiseOperators {
+	public static int[] field = {2,3,0,1};
+	public static int[] field2 = {4,2,1,3};
+	public static int[] field3 = {3,6,2,5};
+	static int combined = 0;
+	static int n = 0;
+	public static int[] fields = new int[3];
+	
+	public static void array(){
+		for(int j = 0; j<field.length; j++){
+		combined = combined | field[j] << 2 * j;
+		fields[0] = combined;
+		
+	
+		}
+	}
+
+	public static void main(String[] args){
+
+		int nums;
+	Scanner input = new Scanner(System.in);
+		String in = "none";
+		System.out.println("Enter your values one at a time or enter none if there are no more values.");
+		in = input.nextLine();
+		try{
+			
+			nums = Integer.parseInt(in);
+		    for(int k = 0; k >= 0; k++){
+		    	field[k] = nums;
+		    }
+			
+		}
+		catch(NumberFormatException none)
+		{
+			if("none" == in){
+				System.out.println("No more inputs will be taken.");
+			}
+			else{
+				System.out.println("That is not a valid input.");
+			}
+	}
+    {
+
+		StringBuilder strNum = new StringBuilder();
+
+		for (int num : field) 
+		{
+		     strNum.append(num);
+		}
+		int finalInt = Integer.parseInt(strNum.toString());
+		StringBuilder strNum2 = new StringBuilder();
+		for (int num : field2) 
+		{
+		     strNum2.append(num);
+		}
+		int finalInt2 = Integer.parseInt(strNum2.toString());
+		StringBuilder strNum3 = new StringBuilder();
+		for (int num : field3) 
+		{
+		     strNum3.append(num);
+		}
+		int finalInt3 = Integer.parseInt(strNum3.toString());
+
+
+		fields[0] = finalInt;
+		fields[1] = finalInt2;
+		fields[2] = finalInt3;
+		BitwiseOperators.array();
+		for(int i = 0; i<fields.length;i++){
+		System.out.println(fields[i]);
+		}
+		int n = 4;
+	for(int i = 0; i < n; i++)
+    {
+	System.out.println("Field " + new Integer(i + 1).toString() + ": " + field[i]);
+	}
+	/*int[] arrayInArray = Arrays.toString(fields);
+	String ar[]=arrayInArray.substring(1,arrayInArray.length()-1).split(", ");
+	System.out.println(arrayInArray.toString());
+	String[][] arrays = new String[][] {ar};
+	System.out.println(arrays[0]);*/
+    }
+	
+}
+}
+
