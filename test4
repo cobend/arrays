@@ -1,0 +1,95 @@
+import java.util.Scanner;
+import java.util.*;
+import java.util.Arrays;
+
+public class BitwiseOperators {
+	public static int[] field1 = new int[4];
+	public static int[] field2 = new int[4];
+	public static int[] field3 = new int[4];
+	static int[][] completefield = { field1, field2, field3 };
+	static int combined = 0;
+	static int combined2 = 0;
+	static int n = 0;
+	public static int[] fields = new int[3];
+
+	public static void array() {
+		for (int j = 0; j < field1.length; j++) {
+			combined = combined | field1[j] << 2 * j;
+			combined2 = combined2 | field2[j] << 2 * j;
+
+			completefield[0][j] = combined;
+			completefield[1][j] = combined2;
+
+		}
+	}
+
+	public static void main(String[] args) {
+		int nums;
+		int b = 0;
+		int k = 0;
+		boolean end = false;
+		String yesno = "yes";
+		while (yesno .equals ("yes")) {
+			while (end != true) {
+				Scanner input = new Scanner(System.in);
+				String in;
+				System.out.println("Enter four values(that are less than 4) one at a time or enter none if there are no more values.");
+				in = input.nextLine();
+
+				try {
+					nums = Integer.parseInt(in);
+					if (k <= 4 && nums <= 3) {
+						completefield[b][k] = nums;
+						k++;
+					}
+					if (nums > 3) {
+						System.out.println("That is not a valid input");
+					}
+				} catch (NumberFormatException none) {
+					if(in .equals("none")){
+					System.out.println("No more inputs will be taken.");
+					b++;
+					k = 0;
+					end = true;
+					}
+					else{
+						System.out.println("That's not a valid input.");
+					}
+				}
+			}
+			Scanner answer = new Scanner(System.in);
+			System.out.println("Do you have any more values?");
+			yesno = answer.nextLine();
+			if (yesno .equals("no")) {
+				end = true;
+			}
+			else if(yesno .equals("yes"));{
+				end = false;
+			}
+		}
+		int n = 4;
+		for (int a = 0; a < completefield.length; a++) {
+			for (int i = 0; i < n; i++) {
+				System.out
+						.println("Field " + (a + 1) + " " + new Integer(i + 1).toString() + ": " + completefield[a][i]);
+			}
+		}
+
+		/*
+		 * StringBuilder strNum2 = new StringBuilder();
+		 * 
+		 * for (int num : field2) { strNum2.append(num); } int finalInt2 =
+		 * Integer.parseInt(strNum2.toString());
+		 * 
+		 * for(int i = 0; i<= 4;i++){ System.out.println(completefield[0][i]);
+		 * System.out.println(completefield[1][i]); } int n = 4;
+		 */
+		/*
+		 * int[] arrayInArray = Arrays.toString(fields); String
+		 * ar[]=arrayInArray.substring(1,arrayInArray.length()-1).split(", ");
+		 * System.out.println(arrayInArray.toString()); String[][] arrays = new
+		 * String[][] {ar}; System.out.println(arrays[0]);
+		 */
+	}
+
+}
