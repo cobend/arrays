@@ -1,0 +1,104 @@
+import java.util.*;
+
+public class BitwiseOperators {
+
+	static int combined = 0;
+	static int combined2 = 0;
+	static int n = 0;
+
+	public static void array() {
+
+	}
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		Scanner input2 = new Scanner(System.in);
+		String in;
+		int in2;
+		System.out.println("How many arrays will you need?");
+		in2 = input2.nextInt() - 1;
+		Vector<Vector<Integer>> vec = new Vector<>();
+		for (int a = 0; a <= in2; a++) {
+			vec.add(new Vector<Integer>());
+		}
+		int nums;
+		int z = 0;
+		int y = 0;
+		boolean end = false;
+		String yesno = "yes";
+		while (yesno.equals("yes")) {
+			for (int b = 0; b < vec.size(); b++) {
+				while (end == false) {
+					System.out.println(
+							"Enter four values(that are less than 4) one at a time or enter none if there are no more values.");
+					for (int c = 0; c <= 4; c++) {
+						in = input.nextLine();
+						in.toLowerCase();
+						try {
+							nums = Integer.parseInt(in);
+							if (y <= 3 && nums <= 3) {
+								(vec.get(z)).add(nums);
+								y++;
+							}
+							if (nums > 3) {
+								System.out.println("That is not a valid input");
+							}
+						} catch (NumberFormatException none) {
+							if (in.equals("none")) {
+								System.out.println("No more inputs will be taken.");
+								z++;
+								y = 0;
+								end = true;
+							} else {
+								System.out.println("That's not a valid input.");
+								end = false;
+								in = "none";
+							}
+						}
+					}
+
+					Scanner answer = new Scanner(System.in);
+					System.out.println("Do you have any more values?");
+					yesno = answer.nextLine();
+					yesno.toLowerCase();
+					if (yesno.equals("no")) {
+						end = true;
+					} else if (yesno.equals("yes")) {
+						end = false;
+					} else {
+						System.out.println("That's not a valid input");
+					}
+				}
+			}
+		}
+		Integer convert[][] = new Integer[vec.size()][4];
+		for (int d = 0; d < convert.length; d++) {
+			for (int e = 0; e < 4; e++) {
+				convert[d][e] = (vec.get(d)).get(e);
+			}
+		}
+
+		for (int f = 0; f < convert.length; f++) {
+			for (int g = 0; g < 4; g++) {
+				System.out.println("Field " + new Integer(f + 1).toString() + ": " + convert[f][g]);
+			}
+		}
+
+		/*
+		 * StringBuilder strNum2 = new StringBuilder();
+		 * 
+		 * for (int num : field2) { strNum2.append(num); } int finalInt2 =
+		 * Integer.parseInt(strNum2.toString());
+		 * 
+		 * for(int i = 0; i<= 4;i++){ System.out.println(completefield[0][i]);
+		 * System.out.println(completefield[1][i]); } int n = 4;
+		 */
+		/*
+		 * int[] arrayInArray = Arrays.toString(fields); String
+		 * ar[]=arrayInArray.substring(1,arrayInArray.length()-1).split(", " );
+		 * System.out.println(arrayInArray.toString()); String[][] arrays = new
+		 * String[][] {ar}; System.out.println(arrays[0]);
+		 */
+	}
+
+}
